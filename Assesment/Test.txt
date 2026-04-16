@@ -1,0 +1,403 @@
+1) Expalin Constructor chaining using this() with example?
+	Constructor chaining can be achive dusing this() statement
+	Syntax
+	ConstructorName()
+	{
+		this();
+	}
+	
+	
+	this(); statement must be the first line to achive the constructor chaining
+	
+	
+	
+	class Amazon
+	{
+		String product;
+		double cost;
+		Amazon()
+		{
+			this("Smart Watch");
+			System.out.println("This is the default constructor");
+		}
+		Amazon(String product)
+		{
+			this("Smart Watch", 2500.45);
+			this.product = product;
+			System.out.println("This is the parameterized constructor");
+		}
+		
+		Amazon(String product, double cost)
+		{
+			this.product = product;
+			this.cost = cost;
+		}
+		
+		void getDeatils()
+		{
+			System.out.println("The product is "+product);
+			System.out.println("The cost of the product is "+cost);
+		}
+	
+	}
+	
+	
+	
+	
+	
+	class AmazonExec
+	{
+		public static void main(String args[])
+		{
+			Amazon a = new Amazon();
+			a.getDeatils();
+		}
+	}
+	
+	
+	
+	
+
+
+
+
+2) Expalin default values assigned to instance variable in java with example
+	
+	default values are the values which are automatiicaly assigned by java for an instance variable when the object is created using new keyword 
+	example the default values are 
+	for int 0, doube 0.0, float 0.0f, boolean false
+	these are the default values for primitive data type where as object refrence type like
+	String, enum, CustomClass for these all thedefault value is null provided by java
+	
+	class Book
+	{
+		int bookId;
+		String bookName;
+		double cost;
+		boolean isBookAvailable;
+		
+		void getBookDetails()
+		{
+			System.out.println("The bookId is "+bookId);
+			System.out.println("The bookName is "+bookName);
+			System.out.println("The cost of the book is "+cost);
+			System.out.println("isBookAvailable"+isBookAvailable);
+		}
+	}
+	
+	
+	
+	
+	
+	class BookExec
+	{
+		public static void main(String ref[])
+		{
+			Book b =new Book();
+			b.getBookDetails();
+			
+			
+			Book bTwo = new Book();
+			bTwo.bookId = 1;
+			bTwo.bookName = "HELI HOGU KARANAVA";
+			bTwo.cost = 390.98;
+			bTwo.isBookAvailable = true;
+			bTwo.getBookDetails();
+		}
+	}
+	
+	
+	for the first time when we call getBookDetails method we will get default values then next we will get the values which all we provided
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+3) Write a java program to perform curd operation on an array:
+	create an array
+	read/display elements
+	update an element
+	delete an element
+	
+	
+	
+		class SuperMarket
+		{
+			Product products[] = new Product[2];
+			int index=0;
+			
+			void addProduct(Product p)
+			{
+				products[index++] = p;
+			}
+			
+			void getProductDetails()
+			{
+				System.out.printn("The productId is "+products.productId);
+				System.out.println("The name of the product is "+products.name);
+			
+			}
+			
+			void updateProduct(Product product, Product p)
+			{
+				for(int i=0; i<products.length; i++)
+				{
+					if(products[i] == product)
+						products[i] = p;
+				}
+			}
+			
+			void deleteProduct(Product p)
+			{
+				for(int i =0; i<products.length; i++)
+				{
+					if(p == products[i])
+						products[i] = null;
+				}
+			}
+		
+		}
+		
+		
+		
+		
+		
+		
+		class Product
+		{
+			int productId;
+			String name;	
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		class SuperMarketExec
+		{
+			public static void main(String args[])
+			{
+				int index;
+				
+				SuperMarket s= new SuperMarket();
+				Product p = new Product();
+				
+				s.products[index++]= p;
+				
+				p.productId = 1;
+				p.name = "Hair straightner";
+				
+				p.addProduct(p);
+				p.getProductDetails();
+				p.updateProduct(p);
+				p.deleteProduct(p);
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	
+4) write a program to demonstrate default constructor
+
+	default constructor is a constructor without ant parameters or arguments to be passed 
+	java compiler will provide us a default constructor
+	constructor doesn't contain any return type and it should be same name as class name
+	
+	
+	class Laptop
+	{
+		Laptop()
+		{
+			System.out.println("This is the default constructor of class Laptop");
+		}
+	}
+	
+	class LaptopExec
+	{
+		public static void main(String args[])
+		{
+			Laptop l = new Laptop();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+5) Write a program using parameterized constructor
+
+
+
+	parameterized constructor is a constructor with some values or arguments
+	
+	
+	class Factory
+	{
+		int factoryId;
+		String factoryName;
+		
+		Factory(int id)
+		{
+			factoryId = id;
+			System.out.println("This is the parameterized constructor with the parameter called id");
+			System.out.println("The factoryId is "+factoryId);
+		}
+		
+		Factory(String name)
+		{
+			factoryName = name;
+			System.out.println("This is the parameterized constructor with parameter called name");
+			System.out.println("The factoryName is "+factoryName);
+		
+		}
+		
+		Factory(int factoryId, String factoryName)
+		{
+			this.factoryId  = factoryId;
+			this.factoryName = factoryName;
+			System.out.println("the factoryId is "+factoryId);
+			System.out.println("The factoryName is "+factoryName);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	class FactoryExec
+	{
+	
+		public static void main(String f[])
+		{
+			Factory f = new Factory(1);
+			Factory fTwo = new Factory("XYZ");
+			Factory fThree = new Factory(2, "ABC");
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+6) what is constructor in java ? who provides the default constructor?
+
+	constructor is a special type of method which should be named as same name as class name and it doesn't consists of any return type
+	
+	
+	in default for every class we have default constructor which is provided by java compiler 
+	
+	we can see that by using the command 
+	javap fileName
+	
+	
+	
+	
+	
+	
+
+
+7) can constructor have a return type? why
+	
+	
+	
+	no constructor do not have any return type if the constructor have return type then it will become same as method
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+8) give a realworld ex of has-a-relationship
+
+
+	class Airport
+	{
+		int airportId;
+		String airportName;
+		
+		
+		Terminal terminal;
+		void airport()
+		{
+			System.out.println("The airportId is "+ airportId);
+			System.out.println(" The airportName is "+airportName);
+			terminal.getTerminalDetails();
+		}
+	}
+	
+	
+	
+	class Terminal{
+		int terminalId;
+		String name;
+		
+		void getTerminalDetails()
+		{
+			System.out.println("The terminalId is "+terminalId);
+			System.out.println("The terminal name is "+name);
+		}
+	
+	}
+	
+	
+	
+	class AirportExec
+	{
+		public static void main(String args[])
+		{
+			Airport a = new Airport();
+			Terminal t = new Terminal();
+			
+			a.terminal = t;
+			
+			
+			a.airportId =1;
+			a.airportName = "Shivamogga";
+			t.terminalId =1;
+			t.name = "A-1";
+			
+			a.airportDetails();
+		}
+	}
